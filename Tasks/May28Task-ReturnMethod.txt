@@ -1,0 +1,52 @@
+package May27PolymorphismOverloading;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class May28Task {
+
+    double getDoubleValue() {
+        System.out.println("I am inside:getDoubleValue");
+        double a = 15.57;
+        return a;
+    }
+
+    char getCharValue() {
+        System.out.println("I am inside:getCharValue");
+        char a = 'b';
+        return a;
+    }
+
+
+    String getStringValue() {
+        System.out.println("I am inside:getCharValue");
+        String str = "Taarun";
+        return str;
+    }
+
+
+    Date getDateValue() {
+        System.out.println("I am inside:getDateValue");
+        Date todayDate=new Date();
+        SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
+        String dateStr = sd.format(todayDate);
+        // date to string
+        System.out.println("I am inside:getDateValue");
+
+        return todayDate;
+    }
+
+    public static void main(String[] args) {
+
+
+        May28Task ob = new May28Task();
+        double num = ob.getDoubleValue();
+        System.out.println(num);
+        char character=ob.getCharValue();
+        System.out.println(character);
+        Date date1=ob.getDateValue();
+        System.out.println(date1);
+
+    }
+
+}
