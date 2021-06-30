@@ -1,0 +1,83 @@
+package HomeWork;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class June29TaskSelXPath {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		
+		WebDriver driver=new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.get("http://demo.guru99.com/v4/");
+		
+		String loginTitle=driver.getTitle();
+		System.out.println("Login Title:"+loginTitle);
+		
+		WebElement userID=driver.findElement(By.xpath("//input[@name='uid']"));
+		userID.sendKeys("mngr336740");
+		
+		WebElement password=driver.findElement(By.xpath("//input[@name='password']"));
+		password.sendKeys("ruqAdYh");
+		
+		Thread.sleep(2000);
+		
+		WebElement login=driver.findElement(By.xpath("//input[@type='submit']"));
+		login.click();
+		
+		String managerPage=driver.getTitle();
+		System.out.println("Manager Page:"+managerPage);
+		
+		Thread.sleep(3000);
+		
+		WebElement newCustomer=driver.findElement(By.xpath("//a[text()='New Customer']"));
+		newCustomer.click();
+
+		Thread.sleep(2000);		
+		WebElement customerName=driver.findElement(By.xpath("//input[@name='name']"));
+		customerName.sendKeys("Taarun");
+
+		WebElement address=driver.findElement(By.xpath("//textarea[@name='addr']"));
+		address.sendKeys("Just a Street");
+		
+		WebElement city=driver.findElement(By.xpath("//input[@name='city']"));
+		city.sendKeys("Coimbatore");
+		
+		WebElement state=driver.findElement(By.xpath("//input[@name='state']"));
+		state.sendKeys("Tamil Nadu");
+		
+		WebElement pin=driver.findElement(By.xpath("//input[@name='pinno']"));
+		pin.sendKeys("123456");
+		Thread.sleep(2000);		
+		
+		WebElement mobileNumber=driver.findElement(By.xpath("//input[@name='telephoneno']"));
+		mobileNumber.sendKeys("875430761");
+		Thread.sleep(2000);		
+		
+		WebElement emailID=driver.findElement(By.xpath("//input[@name='emailid']"));
+		emailID.sendKeys("taarun96@gmail.com");
+		Thread.sleep(2000);		
+		
+		WebElement passwordForm=driver.findElement(By.xpath("//input[@name='password']"));
+		passwordForm.sendKeys("1234");
+
+		
+		WebElement submitButton=driver.findElement(By.xpath("//input[@name='sub']"));
+		submitButton.click();
+		Thread.sleep(3000);
+		Alert alert=driver.switchTo().alert();
+		System.out.println("Alert Text:"+alert.getText());
+		alert.accept();
+		
+		driver.close();
+	}
+
+}

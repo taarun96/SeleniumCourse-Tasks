@@ -1,0 +1,74 @@
+package HomeWork;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class June24TaskSel {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		
+		WebDriver driver=new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.get("http://demo.guru99.com/v4/");
+		
+		String loginTitle=driver.getTitle();
+		System.out.println("Login Title:"+loginTitle);
+		
+		WebElement userID=driver.findElement(By.name("uid"));
+		userID.sendKeys("mngr336740");
+		
+		WebElement password=driver.findElement(By.name("password"));
+		password.sendKeys("ruqAdYh");
+		
+		Thread.sleep(2000);
+		
+		WebElement login=driver.findElement(By.name("btnLogin"));
+		login.click();
+		
+		String managerPage=driver.getTitle();
+		System.out.println("Manager Page:"+managerPage);
+		
+		Thread.sleep(3000);
+		
+		WebElement newCustomer=driver.findElement(By.linkText("New Customer"));
+		newCustomer.click();
+		
+		
+		WebElement customerName=driver.findElement(By.name("name"));
+		customerName.sendKeys("Taarun");
+		
+		WebElement address=driver.findElement(By.name("addr"));
+		address.sendKeys("Just a Street");
+		
+		WebElement city=driver.findElement(By.name("city"));
+		city.sendKeys("Coimbatore");
+		
+		WebElement state=driver.findElement(By.name("state"));
+		state.sendKeys("Tamil Nadu");
+		
+		WebElement pin=driver.findElement(By.name("pinno"));
+		pin.sendKeys("123456");
+		
+		WebElement mobileNumber=driver.findElement(By.name("telephoneno"));
+		mobileNumber.sendKeys("875430761");
+		
+		WebElement emailID=driver.findElement(By.name("emailid"));
+		emailID.sendKeys("taarun96@gmail.com");
+		
+		WebElement passwordForm=driver.findElement(By.name("password"));
+		passwordForm.sendKeys("1234");
+		
+		WebElement submitButton=driver.findElement(By.name("sub"));
+		submitButton.click();
+
+		
+	}
+
+}
